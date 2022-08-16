@@ -1,0 +1,40 @@
+# Copyright (c) 2020, Oracle Corporation and/or its affiliates.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+
+domainInfo:
+    AdminUserName: 'weblogic'
+    AdminPassword: 'Welcome#1'
+    ServerStartMode: 'dev'
+topology:
+    Name: domain1
+    ProductionModeEnabled: false
+    AdminServerName: "admin-server"
+    SecurityConfiguration:
+        NodeManagerUsername : 'weblogic'
+        NodeManagerPasswordEncrypted : 'Welcome#1'
+    Cluster:
+        "cluster-1":
+            DynamicServers:
+                ServerTemplate:  "cluster-1-template"
+                ServerNamePrefix: "managed-server"
+                DynamicClusterSize: 5
+                MaxDynamicClusterSize: 5
+                CalculatedListenPorts: false
+    Server:
+        "admin-server":
+            ListenPort: 7001
+    ServerTemplate:
+        "cluster-1-template":
+            Cluster: "cluster-1"
+            ListenPort : '8001'
+            ServerStart:
+                    Arguments: ['-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=6006']
+            JTAMigratableTarget:
+                    StrictOwnershipCheck: false
+                    Cluster: "cluster-1"
+appDeployments:
+    Application:
+        orabrownie:
+            SourcePath: /u01/oracle/oraBrownie.war
+            ModuleType: war
+            Target: ['cluster-1']

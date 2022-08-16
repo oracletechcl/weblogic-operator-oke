@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: domain1
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+  - host:
+    http:
+      paths:
+      - path: /domain1(.+)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: domain1-cluster-cluster-1
+            port:
+              number: 8001

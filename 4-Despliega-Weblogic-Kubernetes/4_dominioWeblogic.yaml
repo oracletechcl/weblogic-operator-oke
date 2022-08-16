@@ -1,0 +1,104 @@
+# Copyright (c) 2022, Oracle and/or its affiliates.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+
+apiVersion: "weblogic.oracle/v8"
+kind: Domain
+metadata:
+  name: domain1
+  namespace: default
+  labels:
+    weblogic.domainUID: domain1
+
+spec:
+  configuration:
+
+  domainHomeSourceType: Image
+
+  # The WebLogic Domain Home, this must be a location within
+  # the image for 'Model in Image' domains.
+  domainHome: /u01/oracle/user_projects/domains/domain1
+
+  # The WebLogic Server image that the Operator uses to start the domain
+  image: WLREPOIMG
+
+  # Defaults to "Always" if image tag (version) is ':latest'
+  #imagePullPolicy: "IfNotPresent"
+  imagePullPolicy: "Always"
+
+  # Identify which Secret contains the credentials for pulling an image
+  imagePullSecrets:
+  - name: ocirsecret
+
+  # Identify which Secret contains the WebLogic Admin credentials,
+  # the secret must contain 'username' and 'password' fields.
+  webLogicCredentialsSecret:
+    name: domain1-weblogic-credentials
+
+  # Whether to include the WebLogic Server stdout in the pod's stdout, default is true
+  includeServerOutInPodLog: true
+
+  # Whether to enable overriding your log file location, see also 'logHome'
+  logHomeEnabled: true
+
+  # The location for domain log, server logs, server out, introspector out, and Node Manager log files
+  # see also 'logHomeEnabled', 'volumes', and 'volumeMounts'.
+  logHome: /shared/logs-domain1
+
+  # Set which WebLogic Servers the Operator will start
+  # - "NEVER" will not start any server in the domain
+  # - "ADMIN_ONLY" will start up only the administration server (no managed servers will be started)
+  # - "IF_NEEDED" will start all non-clustered servers, including the administration server, and clustered servers up to their replica count.
+  serverStartPolicy: "IF_NEEDED"
+
+  # Settings for all server pods in the domain including the introspector job pod
+  serverPod:
+    # Optional new or overridden environment variables for the domain's pods
+    env:
+    - name: JAVA_OPTIONS
+      value: "-Dweblogic.StdoutDebugEnabled=false"
+    - name: USER_MEM_ARGS
+      value: "-Djava.security.egd=file:/dev/./urandom -Xms256m -Xmx512m "
+    resources:
+      requests:
+        cpu: "250m"
+        memory: "768Mi"
+
+    # Optional volumes and mounts for the domain's pods. See also 'logHome'.
+    volumes:
+    - name: weblogic-domain-storage-volume
+      persistentVolumeClaim:
+        claimName: weblogic
+    volumeMounts:
+    - mountPath: /shared
+      name: weblogic-domain-storage-volume
+
+  # The desired behavior for starting the domain's administration server.
+  adminServer:
+    # Setup a Kubernetes node port for the administration server default channel
+    #adminService:
+    #  channels:
+    #  - channelName: default
+    #    nodePort: 30701
+
+  # The number of managed servers to start for unlisted clusters
+  replicas: 1
+
+  # The desired behavior for starting a specific cluster's member servers
+  clusters:
+  - clusterName: cluster-1
+    # The number of managed servers to start for this cluster
+    replicas: 2
+
+  # Change the restartVersion to force the introspector job to rerun
+  # and apply any new model configuration, to also force a subsequent
+  # roll of your domain's WebLogic Server pods.
+  restartVersion: '1'
+
+  # Changes to this field cause the operator to repeat its introspection of the
+  #  WebLogic domain configuration.
+  introspectVersion: '1'
+
+    # Secrets that are referenced by model yaml macros
+    # (the model yaml in the optional configMap or in the image)
+    #secrets:
+    #- sample-domain1-datasource-secret
