@@ -68,4 +68,4 @@ El objetivo es tener variables de ambiente para los pasos siguientes, estas pued
 
 ### Login al Repositorio Privado OCI
 - Ejecutar
-   - `weblogic-operator-oke/1-Prerequisitos/3_LoginRepoPrivadoOCI.sh`
+   - `bash -x weblogic-operator-oke/1-Prerequisitos/3_LoginRepoPrivadoOCI.sh`
