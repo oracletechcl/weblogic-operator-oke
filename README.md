@@ -1,4 +1,4 @@
-# oke-weblogic
+# weblogic-operator-oke
 
 Este Workshop permite desplegar un cluster OKE y ejecutar un dominio weblogic
 

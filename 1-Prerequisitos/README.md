@@ -37,7 +37,7 @@
 ### Clonar Este Repositorio
 - Permaneciendo en la Consola Cloud Shell
 - Ejecutar
-   - `git clone https://github.com/mgutierr22abr/oke-weblogic.git`
+   - `git clone https://github.com/oracletechcl/weblogic-operator-oke.git`
 
 ## Variables de Ambiente 
 El objetivo es tener variables de ambiente para los pasos siguientes, estas pueden ser seteadas manualmente o con la generación automática indicada a continuación.
@@ -58,14 +58,14 @@ El objetivo es tener variables de ambiente para los pasos siguientes, estas pued
 
 ### Generar Variables de Ambiente 
 - Ejecutar, pasando de parámetro, si ya lo tiene, el token, en caso contrario, se genera automáticamente
-   - `bash -x oke-weblogic/1-Prerequisitos/1_GeneraVariables.sh **"token"**`
+   - `bash -x weblogic-operator-oke/1-Prerequisitos/1_GeneraVariables.sh **"token"**`
 - Habilitar las variables ejecutar \<**punto**\> \<**espacio**\> $HOME/env.sh
    - `. $HOME/env.sh`
 
 ### Login al Repositorio Oracle
 - Ejecutar
-   - `bash -x oke-weblogic/1-Prerequisitos/2_LoginRepoOracle.sh`
+   - `bash -x weblogic-operator-oke/1-Prerequisitos/2_LoginRepoOracle.sh`
 
 ### Login al Repositorio Privado OCI
 - Ejecutar
-   - `oke-weblogic/1-Prerequisitos/3_LoginRepoPrivadoOCI.sh`
+   - `weblogic-operator-oke/1-Prerequisitos/3_LoginRepoPrivadoOCI.sh`

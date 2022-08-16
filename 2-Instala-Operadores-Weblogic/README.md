@@ -14,11 +14,11 @@ En este ejemplo además se usará uno de los operadores clásicos de ingress.
 
 ## Instalar Weblogic Operator
 - Ejecutar
-- `bash -x oke-weblogic/2-Instala-Operadores-Weblogic/1instalaWeblogicOperator.sh`
+- `bash -x weblogic-operator-oke/2-Instala-Operadores-Weblogic/1instalaWeblogicOperator.sh`
 
 ## Instalar Ingress Operator
 - Ejecutar
-- `bash -x oke-weblogic/2-Instala-Operadores-Weblogic/2instalaNGINXoperator.sh`
+- `bash -x weblogic-operator-oke/2-Instala-Operadores-Weblogic/2instalaNGINXoperator.sh`
 
 ## Verificar
 - `kubectl get pods`

@@ -12,4 +12,4 @@ Para este ejemplo se usará el dominio y la aplicación en la Imagen usando WDT,
 
 - Verificar variables de ambiente en $HOME/env.sh
 - Ejecutar
-- `bash -x oke-weblogic/3-Crea-Imagen-Dominio-Weblogic/1generaImagen.sh`
+- `bash -x weblogic-operator-oke/3-Crea-Imagen-Dominio-Weblogic/1generaImagen.sh`
