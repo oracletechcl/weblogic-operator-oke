@@ -6,7 +6,7 @@
 - `bash -x weblogic-operator-oke/4-Despliega-Weblogic-Kubernetes/1_creaSecretParaPullImagen.sh`
 
 - Opcionalmente se crea un PVC para datos compartidos, logs, entre los pod del dominio
-- `kubectl apply -y weblogic-operator-oke/4-Despliega-Weblogic-Kubernetes/2_creaVolumeClaimShared.yaml`
+- `kubectl apply -f weblogic-operator-oke/4-Despliega-Weblogic-Kubernetes/2_creaVolumeClaimShared.yaml`
 - verificar creación esperando estado Pending
 - `kubectl get pvc`
 
