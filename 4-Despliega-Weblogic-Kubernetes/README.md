@@ -35,5 +35,7 @@
 - Anotar IP pública
 - Probar aplicación con `curl ip/domain1/` o bien colocando  https://ip/domain1/ en el browser
 
-## Ejemplos de operación
+## Escalar el cluster
+- `kubectl patch domain domain1 --type=merge --patch '{"spec": {"clusters": [ { "clusterName": "cluster-1", "replicas": 2 } ]}}'`
+## Otros Ejemplos de operación
 - https://github.com/oracle/weblogic-kubernetes-operator/tree/release/3.4/kubernetes/samples/scripts/domain-lifecycle
