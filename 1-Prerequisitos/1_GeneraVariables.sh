@@ -26,6 +26,7 @@ export USU=$(oci iam user get --user-id $USERID | jq -r '.data.name' )
 export REPOIMG=$REPO/$REPODOM/workshop/weblogic1:01
 ##############################
 echo "## Variables ##" > $HOME/env.sh
+echo export HELM_EXPERIMENTAL_OCI=1 >> $HOME/env.sh
 echo export WLTOKENCLA=$TOKENCLA >> $HOME/env.sh
 echo export WLREGION=$REGION >> $HOME/env.sh
 echo export WLREPODOM=$REPODOM >> $HOME/env.sh

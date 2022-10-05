@@ -11,7 +11,13 @@ Este proceso puede realizarse de diversas formas:
 Para este ejemplo se usará el dominio y la aplicación en la Imagen usando WDT, ver en https://github.com/oracle/weblogic-deploy-tooling
 
 - Verificar variables de ambiente en $HOME/env.sh
+
 - Opcional: Recomendado para trabajo, generar imagen en un compartment particular
 - ver shell generaImagen
 - Ejecutar
 - `bash -x weblogic-operator-oke/3-Crea-Imagen-Dominio-Weblogic/1generaImagen.sh`
+
+- Opcional: Recomendado para trabajo, generar imagen en un compartment particular
+- ver shell generaChartHelm
+- Ejecutar
+- `bash -x weblogic-operator-oke/3-Crea-Imagen-Dominio-Weblogic/2generaChartHelm.sh
