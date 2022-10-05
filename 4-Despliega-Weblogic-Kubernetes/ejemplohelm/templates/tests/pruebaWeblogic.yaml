@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "domain.fullname" . }}-prueba-weblogic"
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: [{{ include "domain.fullname" . }}-cluster-cluster-1:8001]
+  restartPolicy: Never
