@@ -43,17 +43,17 @@
 El objetivo es tener variables de ambiente para los pasos siguientes, estas pueden ser seteadas manualmente o con la generación automática indicada a continuación.
 
 >
-> export WLTOKENCLA="xxxxxxxxxxxxxxxxxxxx"
+> export YYTOKENCLA="xxxxxxxxxxxxxxxxxxxx"
 >
-> export WLREGION=xxx
+> export YYREGION=xxx
 >
-> export WLREPODOM=xxxxxxxx
+> export YYREPODOM=xxxxxxxx
 >
-> export WLREPO=xxx.xx.xx
+> export YYREPO=xxx.xx.xx
 >
-> export WLUSU=xxxxxxxxxxxxxxxxxxx
+> export YYUSU=xxxxxxxxxxxxxxxxxxx
 >
-> export WLREPOIMG=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/weblogic1:01
+> export YYREPOIMG=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/weblogic1:01
 >
 
 ### Generar Variables de Ambiente 

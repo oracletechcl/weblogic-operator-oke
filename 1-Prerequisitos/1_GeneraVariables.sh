@@ -27,11 +27,11 @@ export REPOIMG=$REPO/$REPODOM/workshop/weblogic1:01
 ##############################
 echo "## Variables ##" > $HOME/env.sh
 echo export HELM_EXPERIMENTAL_OCI=1 >> $HOME/env.sh
-echo export WLTOKENCLA=$TOKENCLA >> $HOME/env.sh
-echo export WLREGION=$REGION >> $HOME/env.sh
-echo export WLREPODOM=$REPODOM >> $HOME/env.sh
-echo export WLREPO=$REPO >> $HOME/env.sh
-echo export WLUSU=$USU >> $HOME/env.sh
-echo export WLREPOIMG=$REPOIMG >> $HOME/env.sh
+echo export YYTOKENCLA=$TOKENCLA >> $HOME/env.sh
+echo export YYREGION=$REGION >> $HOME/env.sh
+echo export YYREPODOM=$REPODOM >> $HOME/env.sh
+echo export YYREPO=$REPO >> $HOME/env.sh
+echo export YYUSU=$USU >> $HOME/env.sh
+echo export YYREPOIMG=$REPOIMG >> $HOME/env.sh
 ##############################
 echo '. $HOME/env.sh' >> $HOME/.bash_profile
