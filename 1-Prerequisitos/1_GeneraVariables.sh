@@ -34,4 +34,4 @@ echo export YYREPO=$REPO >> $HOME/env.sh
 echo export YYUSU=$USU >> $HOME/env.sh
 echo export YYREPOIMG=$REPOIMG >> $HOME/env.sh
 ##############################
-echo '. $HOME/env.sh' >> $HOME/.bash_profile
+#echo '. $HOME/env.sh' >> $HOME/.bash_profile
